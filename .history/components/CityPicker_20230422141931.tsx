@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import React, { useState } from 'react';
-import { Country, City  } from "country-state-city";
+import { Country, City, State } from "country-state-city";
 import Select from "react-select";
 import { GlobeIcon } from "@heroicons/react/solid"
 
@@ -52,7 +52,13 @@ function CityPicker() {
             );
         }
 
-       
+        const handleSelectedState = (option: StateOption) => {
+            setSelectedState(option);
+            router.push(
+                `/location/${option?.value.name}/${option?.value.latitude}/${option?.value.longitude}`
+            )
+
+        }
 
 
   return (
@@ -76,7 +82,7 @@ function CityPicker() {
     <div className="space-y-2">
         <div className="flex items-center space-x-2 text-white/80">
             <GlobeIcon className="h-5 w-5 text-white" />
-            <label htmlFor="country">City</label>
+            <label htmlFor="country">State</label>
         </div>
         <Select
             className="text-black"
@@ -84,7 +90,7 @@ function CityPicker() {
             onChange={handleSelectedCity}
             options={
                 City.getCitiesOfCountry(
-                        selectedCountry.value.isoCode
+                        selectedState.value.isoCode
                         )?.map((state) => ({
                     value: {
                         latitude: state.latitude!,
@@ -100,7 +106,33 @@ function CityPicker() {
     </div>
     )}
 
-    
+{selectedState && (
+    <div className="space-y-2">
+        <div className="flex items-center space-x-2 text-white/80">
+            <GlobeIcon className="h-5 w-5 text-white" />
+            <label htmlFor="country">City</label>
+        </div>
+        <Select
+            className="text-black"
+            value={selectedCity}
+            onChange={handleSelectedCity}
+            options={
+                City.getCitiesOfCountry(
+                        selectedCity.value.isoCode
+                        )?.map((state) => ({
+                    value: {
+                        latitude: state.latitude!,
+                        longitude: state.longitude!,
+                        countryCode: state.countryCode,
+                        name: state.name,
+                        stateCode: state.stateCode,
+                    },
+                    label: state.name,
+                }))
+            } 
+            />
+    </div>
+    )}
 
     
         </div>

@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import React, { useState } from 'react';
-import { Country, City  } from "country-state-city";
+import { Country, City } from "country-state-city";
 import Select from "react-select";
 import { GlobeIcon } from "@heroicons/react/solid"
 
@@ -48,11 +48,9 @@ function CityPicker() {
         const handleSelectedCity = (option: cityOption) => {
             setSelectedCity(option);
             router.push(
-                `/location/${option?.value.name}/${option?.value.latitude}/${option?.value.longitude}`
+                `/location/${option?.value.name}${option?.value.latitude}/${option?.value.longitude}`
             );
         }
-
-       
 
 
   return (
@@ -69,7 +67,6 @@ function CityPicker() {
             options={options} 
             />
     </div>
-    
 
 
     {selectedCountry && (
@@ -99,10 +96,6 @@ function CityPicker() {
             />
     </div>
     )}
-
-    
-
-    
         </div>
   )
 }

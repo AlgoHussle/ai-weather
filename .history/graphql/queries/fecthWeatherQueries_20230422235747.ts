@@ -1,0 +1,1 @@
+const fetchWeatherQuery = gql``

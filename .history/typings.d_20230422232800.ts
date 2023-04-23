@@ -1,10 +1,10 @@
 interface CurrentWeather {
-    is_day: number;
     temperature: number;
     time: string;
     weathercode: number;
     weatherdirection: number;
     windspeed: number;
+    is_day: number;
 }
 
 interface Daily {

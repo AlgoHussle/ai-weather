@@ -30,19 +30,7 @@ type Props = {
 
   return (
     <div>
-      {/* <informationPanel /> */}
-      <div>
-        <div>
-          <div>
-            <h2>Todays Overview</h2>
-            <p>Last Updated at:{""}
-            {new Date(results.current_weather.time).toLocaleString()} 
-            ({results.timezone})
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+      Welcome to the weather page: {city} {lat} {long} </div>
   )
 }
 

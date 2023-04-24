@@ -34,11 +34,7 @@ type Props = {
       <div>
         <div>
           <div>
-            <h2>Todays Overview</h2>
-            <p>Last Updated at:{""}
-            {new Date(results.current_weather.time).toLocaleString()} 
-            ({results.timezone})
-            </p>
+            <h2></h2>
           </div>
         </div>
       </div>

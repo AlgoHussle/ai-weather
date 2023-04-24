@@ -101,4 +101,3 @@ query myQuery(
   `;
 
 
-export default fetchWeatherQuery;

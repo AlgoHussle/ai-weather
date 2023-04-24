@@ -97,8 +97,4 @@ query myQuery(
       timezone_abbreviation
       utc_offset_seconds
     }
-  }
-  `;
-
-
-export default fetchWeatherQuery;
+  }`

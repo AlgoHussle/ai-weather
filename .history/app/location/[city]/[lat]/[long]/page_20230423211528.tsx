@@ -1,4 +1,5 @@
 import { getClient } from "@/apollo-client"
+
 import fetchWeatherQuery from "@/graphql/queries/fecthWeatherQueries";
 
 
@@ -12,21 +13,12 @@ type Props = {
 
 
 
- async function WeatherPage({params: {city, lat, long}}:  Props) {
+function WeatherPage({params: {city, lat, long}}:  Props) {
   const client = getClient();
 
   const { data } =  await client.query({
-    query: fetchWeatherQuery,
-    variables: {
-    current_weather: "true",
-    longitude: long,
-    latitude: lat,
-    timezone: 'GMT'
-    }
+    query: fetchWeatherQuery
   })
-
-  const results: Root = data.myQuery;
-
 
   return (
     <div>Welcome to the weather page: {city} {lat} {long} </div>

@@ -18,15 +18,9 @@ type Props = {
   const { data } =  await client.query({
     query: fetchWeatherQuery,
     variables: {
-    current_weather: "true",
-    longitude: long,
-    latitude: lat,
-    timezone: 'GMT'
+
     }
   })
-
-  const results: Root = data.myQuery;
-
 
   return (
     <div>Welcome to the weather page: {city} {lat} {long} </div>

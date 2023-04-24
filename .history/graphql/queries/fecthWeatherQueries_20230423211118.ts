@@ -98,7 +98,4 @@ query myQuery(
       utc_offset_seconds
     }
   }
-  `;
-
-
-export default fetchWeatherQuery;
+  `

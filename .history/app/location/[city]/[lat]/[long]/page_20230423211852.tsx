@@ -27,6 +27,7 @@ type Props = {
 
   const results: Root = data.myQuery;
 
+  console.log(results);
 
   return (
     <div>Welcome to the weather page: {city} {lat} {long} </div>
